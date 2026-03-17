@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakhtiar Alam — Performance & Lifecycle Marketing</title>
+    <meta name="description" content="Performance and lifecycle marketing specialist based in Melbourne. Six years across sports, B2B SaaS and education. Paid media, CRM strategy, Salesforce Marketing Cloud.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300;1,14..32,400;1,14..32,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">BA</a>
+            <ul class="nav-links">
+                <li><a href="#metrics">Numbers</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#thinking">Thinking</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#beyond">Beyond</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-mobile" id="navMobile">
+            <ul>
+                <li><a href="#metrics">Numbers</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#thinking">Thinking</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#beyond">Beyond</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section id="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow fade-in-up" style="--delay: 0.1s">Melbourne · Performance Marketing Specialist</p>
+            <h1 class="hero-name fade-in-up" style="--delay: 0.25s">
+                Bakhtiar<br>Alam
+            </h1>
+            <div class="hero-subtitle fade-in-up" style="--delay: 0.5s">
+                <span id="typewriter-text"></span><span class="typer-cursor" id="typerCursor">|</span>
+            </div>
+            <p class="hero-summary fade-in-up" style="--delay: 0.75s">
+                I've spent six years building marketing functions at the intersection of paid media and CRM — across sports, B2B SaaS and education. At Cricket Victoria I led a Salesforce Data Cloud implementation that unified 200,000+ customer profiles across four brands, including replacing the partner who was supposed to do it. Before that I ran lifecycle marketing for an NDIS SaaS platform, and before that I was the first marketing hire at a technology company, which means I've built things from scratch more than once. What actually drives me is the space after acquisition — where retention either happens or it doesn't. Most marketing teams move past it too quickly. I don't.
+            </p>
+            <a href="#contact" class="hero-cta fade-in-up" style="--delay: 1s">Start a conversation</a>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-bar"></div>
+        </div>
+    </section>
+
+    <!-- ========== METRICS ========== -->
+    <section id="metrics">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="eyebrow">By the numbers</span>
+                <h2>The work, measured</h2>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card fade-up">
+                    <div class="metric-glow"></div>
+                    <div class="metric-number" data-target="3.5" data-decimals="1" data-prefix="$" data-suffix="M+">0</div>
+                    <p class="metric-label">Career marketing-driven revenue</p>
+                </div>
+                <div class="metric-card fade-up">
+                    <div class="metric-glow"></div>
+                    <div class="metric-number" data-target="200000" data-format="comma" data-suffix="+">0</div>
+                    <p class="metric-label">Customer profiles unified</p>
+                </div>
+                <div class="metric-card fade-up">
+                    <div class="metric-glow"></div>
+                    <div class="metric-number" data-target="6.5" data-decimals="1" data-suffix="x">0</div>
+                    <p class="metric-label">Average ROAS on paid media</p>
+                </div>
+                <div class="metric-card fade-up">
+                    <div class="metric-glow"></div>
+                    <div class="metric-number" data-target="900" data-prefix="$" data-suffix="K+">0</div>
+                    <p class="metric-label">Total paid media managed</p>
+                </div>
+                <div class="metric-card fade-up">
+                    <div class="metric-glow"></div>
+                    <div class="metric-number" data-target="17" data-suffix="%">0</div>
+                    <p class="metric-label">Retention uplift at Provider Plus</p>
+                </div>
+                <div class="metric-card fade-up">
+                    <div class="metric-glow"></div>
+                    <div class="metric-number" data-target="22" data-suffix="%">0</div>
+                    <p class="metric-label">CPA reduction achieved</p>
+                </div>
+                <div class="metric-card fade-up">
+                    <div class="metric-glow"></div>
+                    <div class="metric-number" data-target="60" data-suffix="%+">0</div>
+                    <p class="metric-label">Market share — NDIS platform space</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CAREER ========== -->
+    <section id="career">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="eyebrow">The journey</span>
+                <h2>Career story</h2>
+            </div>
+            <div class="timeline">
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-meta">
+                            <span class="timeline-period">2020 — 2022</span>
+                            <span class="timeline-badge">First hire</span>
+                        </div>
+                        <h3 class="timeline-company">Aerion Technologies</h3>
+                        <p class="timeline-role">First and only marketing hire. Built the function from zero.</p>
+                        <div class="timeline-content">
+                            <p>No playbook. No handover. I built everything — the strategy, team structure, website, content programs and agency relationships. Generated $1M+ in marketing-influenced revenue and grew the audience from zero to 3,000+ in twelve months. Built the company website, which is still live today. On the side, I created Jotter — an AI note-taking tool built with the software developers I was working with, because meetings were generating too much discussion and not enough useful output.</p>
+                            <div class="timeline-tags">
+                                <span>$1M+ revenue influenced</span>
+                                <span>0 → 3,000+ audience</span>
+                                <span>Company website build</span>
+                                <span>Jotter AI tool</span>
+                            </div>
+                        </div>
+                        <blockquote class="timeline-note">
+                            "Building something from nothing forces you to understand every part of how it works. There is no one to delegate to so you figure it out."
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-meta">
+                            <span class="timeline-period">2022 — 2023</span>
+                            <span class="timeline-badge">SaaS & retention</span>
+                        </div>
+                        <h3 class="timeline-company">Provider Plus</h3>
+                        <p class="timeline-role">Lifecycle marketing lead for an NDIS SaaS membership platform.</p>
+                        <div class="timeline-content">
+                            <p>Led lifecycle marketing for a platform with over 4,000 B2B members. Grew retention by 17%, reduced cost per acquisition by 22%, and helped the business reach 60%+ market share in the Australian NDIS space. Managed $500K+ in annual paid media and built HubSpot lifecycle journeys across email, SMS and in-app channels. This is where retention stopped being a metric and became a methodology.</p>
+                            <div class="timeline-tags">
+                                <span>17% retention uplift</span>
+                                <span>22% CPA reduction</span>
+                                <span>60%+ market share</span>
+                                <span>$500K+ paid media</span>
+                            </div>
+                        </div>
+                        <blockquote class="timeline-note">
+                            "Retention is harder and more interesting than acquisition. Anyone can spend money to get a customer. Keeping them requires understanding why they might leave before they decide to."
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up timeline-item--current">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot timeline-dot--active"></div>
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-meta">
+                            <span class="timeline-period">2023 — Present</span>
+                            <span class="timeline-badge timeline-badge--active">Current</span>
+                        </div>
+                        <h3 class="timeline-company">Cricket Victoria</h3>
+                        <p class="timeline-role">Marketing lead across four brands simultaneously.</p>
+                        <div class="timeline-content">
+                            <p>Lead marketing across Melbourne Renegades, Melbourne Stars, Melbourne Cricket Education Academy and Cricket Victoria Foundation. Led end-to-end Salesforce Data Cloud implementation unifying 200,000+ customer profiles — including replacing the underperforming implementation partner when it became clear they were not going to deliver. Grew revenue across three seasons from $600K to $900K to $1.2M+, delivering $2.5M+ total with a 6.5x average ROAS on $900K+ in paid media. Present strategy and performance at General Manager level.</p>
+                            <div class="timeline-tags">
+                                <span>$2.5M+ revenue delivered</span>
+                                <span>200K+ profiles unified</span>
+                                <span>6.5x average ROAS</span>
+                                <span>4 brands</span>
+                            </div>
+                        </div>
+                        <blockquote class="timeline-note">
+                            "Running four brands at once means you get very good at prioritisation and very comfortable with ambiguity. Data infrastructure is a commercial decision as much as a technical one."
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW I THINK ========== -->
+    <section id="thinking">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="eyebrow">Perspective</span>
+                <h2>How I think</h2>
+            </div>
+            <div class="thinking-grid">
+
+                <div class="thinking-card fade-up">
+                    <span class="thinking-num">01</span>
+                    <h3>The gap between acquisition and retention is where most marketing programs fall apart.</h3>
+                    <p>Most organisations celebrate getting a customer and then move on. The metrics look good, the campaign gets called a success, and attention shifts to the next acquisition push. The real work starts after the first conversion. I've spent most of my career in that gap — mapping where customers go quiet, building the journeys that keep them engaged, and finding the moments where the relationship either deepens or starts to erode.</p>
+                </div>
+
+                <div class="thinking-card fade-up">
+                    <span class="thinking-num">02</span>
+                    <h3>Data infrastructure is a commercial decision, not a technical one.</h3>
+                    <p>When I led the Salesforce Data Cloud implementation at Cricket Victoria, the biggest challenge wasn't technical. It was getting internal stakeholders to understand why unified data mattered commercially — what decisions we couldn't make without it, what revenue we were leaving on the table. The technology was the easy part. Once people could see the commercial logic, the project moved. That sequence matters.</p>
+                </div>
+
+                <div class="thinking-card fade-up">
+                    <span class="thinking-num">03</span>
+                    <h3>I built a tool because the right one didn't exist.</h3>
+                    <p>At Aerion I was working closely with software developers and kept running into the same problem — meetings were generating a lot of discussion and not enough useful output. So I built Jotter, an AI note-taking tool designed to keep meeting outputs and marketing collateral creation more productive. It taught me that the best solutions come from living inside the problem, not observing it from the outside. I am not a developer. I built it anyway.</p>
+                </div>
+
+                <div class="thinking-card fade-up">
+                    <span class="thinking-num">04</span>
+                    <h3>Good agency management is not about being the client.</h3>
+                    <p>Most marketers treat agency relationships as a service transaction — you brief them, they deliver, you pay. I treat them as a performance partnership. I set clear targets, review results critically, ask hard questions about methodology, and replace partners when they are not delivering. That approach recovered significant budget and performance at both Cricket Victoria and Provider Plus. The best agencies respond well to it. The ones who don't are usually the problem.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHAT I'VE BUILT ========== -->
+    <section id="work">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="eyebrow">Case studies</span>
+                <h2>What I've built</h2>
+            </div>
+            <div class="work-grid">
+
+                <div class="work-card fade-up">
+                    <div class="work-card-accent work-card-accent--blue"></div>
+                    <div class="work-card-inner">
+                        <div class="work-card-header">
+                            <span class="work-tag">Education Campaign</span>
+                            <span class="work-org">Cricket Victoria · MCEA</span>
+                        </div>
+                        <h3 class="work-title">Student acquisition funnel for an accredited Diploma with RMIT</h3>
+                        <div class="work-sections">
+                            <div class="work-section">
+                                <p class="work-section-label">The problem</p>
+                                <p>An accredited Diploma in Sport and Business with RMIT University that wasn't reaching its target enrolment numbers through organic channels alone. A high-consideration decision that needed the right funnel architecture.</p>
+                            </div>
+                            <div class="work-section">
+                                <p class="work-section-label">What I did</p>
+                                <p>Built a full student acquisition funnel from awareness through to enrolment conversion across Meta, Google and email. Developed personalised nurture journeys suited to the pace of an education decision — longer consideration cycles, multi-touch sequences, content matched to objections at each stage.</p>
+                            </div>
+                            <div class="work-results">
+                                <p class="work-section-label">Results</p>
+                                <div class="work-results-grid">
+                                    <div class="work-result">
+                                        <span class="work-result-num">83%</span>
+                                        <span class="work-result-desc">of enrolments from paid and owned channels</span>
+                                    </div>
+                                    <div class="work-result">
+                                        <span class="work-result-num">57%</span>
+                                        <span class="work-result-desc">of program leads from paid campaigns</span>
+                                    </div>
+                                    <div class="work-result">
+                                        <span class="work-result-num">$350K</span>
+                                        <span class="work-result-desc">revenue from a single integrated campaign</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card fade-up">
+                    <div class="work-card-accent work-card-accent--teal"></div>
+                    <div class="work-card-inner">
+                        <div class="work-card-header">
+                            <span class="work-tag">Data Infrastructure</span>
+                            <span class="work-org">Cricket Victoria</span>
+                        </div>
+                        <h3 class="work-title">Salesforce Data Cloud implementation across four brands</h3>
+                        <div class="work-sections">
+                            <div class="work-section">
+                                <p class="work-section-label">The problem</p>
+                                <p>Four brands generating customer data across multiple disconnected systems. No unified view of the customer. Limited ability to personalise or target effectively. An implementation partner who was not delivering.</p>
+                            </div>
+                            <div class="work-section">
+                                <p class="work-section-label">What I did</p>
+                                <p>Led end-to-end Salesforce Data Cloud implementation — data stream architecture, identity resolution and segmentation strategy. Evaluated and ultimately replaced the original implementation partner. Rebuilt the approach with a partner who could actually deliver it.</p>
+                            </div>
+                            <div class="work-results">
+                                <p class="work-section-label">Results</p>
+                                <div class="work-results-grid">
+                                    <div class="work-result">
+                                        <span class="work-result-num">200K+</span>
+                                        <span class="work-result-desc">customer profiles unified across four brands</span>
+                                    </div>
+                                    <div class="work-result">
+                                        <span class="work-result-num">Full</span>
+                                        <span class="work-result-desc">personalised lifecycle journey capability built</span>
+                                    </div>
+                                    <div class="work-result">
+                                        <span class="work-result-num">Advanced</span>
+                                        <span class="work-result-desc">segmentation and cross-channel activation enabled</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card fade-up">
+                    <div class="work-card-accent work-card-accent--purple"></div>
+                    <div class="work-card-inner">
+                        <div class="work-card-header">
+                            <span class="work-tag">Lifecycle & Retention</span>
+                            <span class="work-org">Provider Plus</span>
+                        </div>
+                        <h3 class="work-title">Rebuilding the member lifecycle to stop early churn</h3>
+                        <div class="work-sections">
+                            <div class="work-section">
+                                <p class="work-section-label">The problem</p>
+                                <p>A B2B SaaS membership platform losing too many members in the first 90 days, before they'd experienced the full value of the platform. The first conversion was happening. The second wasn't.</p>
+                            </div>
+                            <div class="work-section">
+                                <p class="work-section-label">What I did</p>
+                                <p>Mapped the full member journey, identified two critical drop-off points — at onboarding and at the six-month mark — and rebuilt the HubSpot lifecycle program to address both. Triggered sequences, behavioural signals, re-engagement journeys matched to the moments that actually mattered.</p>
+                            </div>
+                            <div class="work-results">
+                                <p class="work-section-label">Results</p>
+                                <div class="work-results-grid">
+                                    <div class="work-result">
+                                        <span class="work-result-num">17%</span>
+                                        <span class="work-result-desc">improvement in member retention</span>
+                                    </div>
+                                    <div class="work-result">
+                                        <span class="work-result-num">22%</span>
+                                        <span class="work-result-desc">reduction in cost per acquisition</span>
+                                    </div>
+                                    <div class="work-result">
+                                        <span class="work-result-num">60%+</span>
+                                        <span class="work-result-desc">market share — Australian NDIS platform space</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BEYOND THE RESUME ========== -->
+    <section id="beyond">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="eyebrow">The rest of it</span>
+                <h2>Beyond the resume</h2>
+                <p class="section-intro fade-up">Things that don't fit neatly on a CV but say more about how I think than most of what does.</p>
+            </div>
+            <div class="beyond-grid">
+
+                <div class="beyond-card fade-up">
+                    <div class="beyond-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Jotter — an AI note-taking tool I built because I got frustrated</h3>
+                    <p>At Aerion I was working closely with software developers and kept running into the same problem — meetings were generating a lot of discussion and not enough useful output. So I built Jotter, an AI note-taking tool designed to keep meeting outputs and marketing collateral creation more productive. It was a side project, but it taught me more about how to think about user problems than most of my formal marketing work. I am not a developer. I built it anyway.</p>
+                </div>
+
+                <div class="beyond-card fade-up">
+                    <div class="beyond-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>A small web agency during COVID — real revenue, then real life</h3>
+                    <p>During COVID I co-founded a small web development and digital systems agency with a friend. We built websites and digital tools for small and medium businesses and it actually generated real revenue. Life got in the way and we wound it down, but I think about it often. Building something from scratch with limited resources is mostly about figuring out what matters and ignoring everything else. That lesson has stayed useful.</p>
+                </div>
+
+                <div class="beyond-card fade-up">
+                    <div class="beyond-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <h3>RMIT Digital Leadership — doing it deliberately</h3>
+                    <p>Currently completing a Digital Leadership short course through RMIT University, sponsored by Cricket Victoria. Six weeks covering agile leadership, stakeholder influence and building high-performing teams. I enrolled because the leadership side of my work has grown significantly and I wanted to be deliberate about developing it properly, rather than just figuring it out as I went.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-block fade-up">
+                <span class="eyebrow">Get in touch</span>
+                <h2 class="contact-heading">Let's talk about hard problems</h2>
+                <p class="contact-intro">I'm always interested in conversations about hard marketing problems. If you're working on something that sits at the intersection of data, strategy and growth — I'd like to hear about it.</p>
+                <div class="contact-links">
+                    <a href="mailto:bakhtiyar555@gmail.com" class="contact-link">
+                        <div class="contact-link-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div class="contact-link-text">
+                            <span class="contact-link-label">Email</span>
+                            <span class="contact-link-value">bakhtiyar555@gmail.com</span>
+                        </div>
+                        <div class="contact-link-arrow">→</div>
+                    </a>
+                    <a href="https://linkedin.com/in/bakhtiar-alam" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <div class="contact-link-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </div>
+                        <div class="contact-link-text">
+                            <span class="contact-link-label">LinkedIn</span>
+                            <span class="contact-link-value">linkedin.com/in/bakhtiar-alam</span>
+                        </div>
+                        <div class="contact-link-arrow">→</div>
+                    </a>
+                    <div class="contact-link contact-link--static">
+                        <div class="contact-link-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="contact-link-text">
+                            <span class="contact-link-label">Location</span>
+                            <span class="contact-link-value">Melbourne, VIC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-name">Bakhtiar Alam</p>
+                <p class="footer-tagline">Performance & Lifecycle Marketing · Melbourne, VIC</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
