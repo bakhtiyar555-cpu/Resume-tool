@@ -266,6 +266,22 @@ section {
     color: var(--white);
 }
 
+.nav-links .nav-tool-link {
+    padding: 6px 14px;
+    background: rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(13, 148, 136, 0.35);
+    border-radius: 100px;
+    color: var(--teal);
+    font-size: 0.82rem;
+    transition: all var(--transition);
+}
+
+.nav-links .nav-tool-link:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--white);
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;

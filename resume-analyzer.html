@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Compatibility Analyzer | Bakhtiar Alam</title>
+  <meta name="description" content="Analyze your resume against any job description. Get an ATS compatibility score, keyword gap analysis, and actionable improvement tips.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resume-analyzer.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="nav-logo">BA</a>
+      <a href="index.html" class="back-link">← Back to Portfolio</a>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-badge">Free Tool</div>
+    <h1>Resume Compatibility Analyzer</h1>
+    <p class="hero-desc">
+      Upload your resume and paste a job description to get an instant compatibility
+      score, ATS check, and keyword gap analysis — no sign-up required.
+    </p>
+    <div class="hero-pills">
+      <span class="hero-pill">Score out of 100</span>
+      <span class="hero-pill">ATS Compatibility</span>
+      <span class="hero-pill">Keyword Gap Analysis</span>
+      <span class="hero-pill">Actionable Tips</span>
+    </div>
+  </section>
+
+  <!-- ── INPUT SECTION ── -->
+  <section class="input-section">
+    <div class="input-grid">
+
+      <!-- RESUME PANEL -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-num">01</span>
+          <div>
+            <h2 class="panel-title">Your Resume</h2>
+            <p class="panel-sub">Upload a PDF or paste your resume text</p>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" id="tab-upload">Upload File</button>
+          <button class="tab" id="tab-paste">Paste Text</button>
+        </div>
+
+        <!-- Upload sub-panel -->
+        <div id="upload-panel">
+          <div class="dropzone" id="resume-dropzone">
+            <div class="dz-icon">📄</div>
+            <div class="dz-text">Drop your resume here</div>
+            <div class="dz-sub">or click to browse</div>
+            <div class="dz-fmts">PDF · TXT supported</div>
+          </div>
+          <input type="file" id="resume-upload" accept=".pdf,.txt" style="display:none">
+          <div id="file-status" class="file-status"></div>
+        </div>
+
+        <!-- Paste sub-panel -->
+        <div id="paste-panel" style="display:none">
+          <textarea
+            id="resume-text"
+            class="textarea"
+            placeholder="Paste your full resume text here — include all sections, work experience, skills, and education..."
+            rows="13"
+          ></textarea>
+          <div id="resume-char-count" class="char-count">0 characters</div>
+        </div>
+      </div>
+
+      <!-- JOB DESCRIPTION PANEL -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-num">02</span>
+          <div>
+            <h2 class="panel-title">Job Description</h2>
+            <p class="panel-sub">Paste the full job posting you're applying for</p>
+          </div>
+        </div>
+        <textarea
+          id="job-description"
+          class="textarea"
+          placeholder="Paste the full job description here — including responsibilities, required qualifications, preferred skills, and any other requirements listed in the posting..."
+          rows="18"
+        ></textarea>
+        <div id="jd-char-count" class="char-count">0 characters</div>
+      </div>
+
+    </div><!-- /input-grid -->
+
+    <div id="error-msg" class="error-msg"></div>
+
+    <div class="action-row">
+      <button id="analyze-btn" class="btn-analyze">Analyze Resume</button>
+      <button id="clear-btn" class="btn-clear">Clear All</button>
+    </div>
+  </section>
+
+  <!-- ── RESULTS SECTION ── -->
+  <section id="results-section" class="results-section"></section>
+
+  <footer>
+    <p>Built for <a href="index.html">Bakhtiar Alam's Portfolio</a> · Melbourne, VIC</p>
+  </footer>
+
+  <script src="resume-analyzer.js"></script>
+</body>
+</html>
