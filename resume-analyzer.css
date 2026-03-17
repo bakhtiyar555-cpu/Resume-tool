@@ -689,6 +689,128 @@ body {
 .rec-item--medium  .rec-icon { color: var(--yellow); background: rgba(245, 158, 11, 0.15); }
 .rec-item--success .rec-icon { color: var(--green);  background: rgba(16, 185, 129, 0.15); }
 
+/* ── INTERVIEW LIKELIHOOD CARD ── */
+.likelihood-card { }
+
+.likelihood-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.likelihood-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.likelihood-pct {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.likelihood-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.28rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid;
+  margin-bottom: 0.25rem;
+}
+
+.likelihood-bar-wrap {
+  width: 100%;
+}
+
+.likelihood-bar-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+}
+
+.likelihood-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  width: 0;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.likelihood-bar-ends {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.likelihood-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-top: 0.15rem;
+}
+
+.likelihood-right { }
+
+.likelihood-factors-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.likelihood-factors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lf-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+}
+
+.lf-row--pos { background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.18); }
+.lf-row--neg { background: rgba(239, 68, 68, 0.05);  border-color: rgba(239, 68, 68, 0.18);  }
+.lf-row--neu { background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.18); }
+
+.lf-icon {
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.lf-row--pos .lf-icon { color: var(--green);  background: rgba(16, 185, 129, 0.15); }
+.lf-row--neg .lf-icon { color: var(--red);    background: rgba(239, 68, 68, 0.15);  }
+.lf-row--neu .lf-icon { color: var(--yellow); background: rgba(245, 158, 11, 0.15); }
+
+.lf-text { color: var(--text-secondary); line-height: 1.45; }
+
+@media (max-width: 720px) {
+  .likelihood-inner { grid-template-columns: 1fr; gap: 1.75rem; }
+  .likelihood-pct   { font-size: 2.8rem; }
+}
+
 /* ── FOOTER ── */
 footer {
   border-top: 1px solid var(--border);

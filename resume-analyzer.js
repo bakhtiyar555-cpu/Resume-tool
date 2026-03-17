@@ -289,7 +289,7 @@ async function analyzeResume(resumeText, jdText) {
   const totalScore    = Math.min(100, keywordScore + atsResult.atsScore + contentScore);
   const wordCount     = resumeText.split(/\s+/).filter(w => w.length > 0).length;
 
-  return {
+  const baseResults = {
     totalScore,
     keywordScore,
     atsScore: atsResult.atsScore,
@@ -300,6 +300,11 @@ async function analyzeResume(resumeText, jdText) {
     atsChecks: atsResult.checks,
     wordCount
   };
+
+  const interviewLikelihood = calculateInterviewLikelihood(baseResults);
+  const likelihoodFactors   = buildLikelihoodFactors(baseResults);
+
+  return { ...baseResults, interviewLikelihood, likelihoodFactors };
 }
 
 // ── RECOMMENDATIONS ──────────────────────────────────────────
@@ -349,6 +354,70 @@ function buildRecommendations(results) {
   }
 
   return recs;
+}
+
+// ── INTERVIEW LIKELIHOOD ─────────────────────────────────────
+function calculateInterviewLikelihood(results) {
+  const kwRate      = results.keywordScore / 50;   // 0–1
+  const atsRate     = results.atsScore / 30;        // 0–1
+  const contentRate = results.contentScore / 20;    // 0–1
+
+  // Keyword match is the dominant signal; ATS & content support it
+  let raw = kwRate * 0.50 + atsRate * 0.30 + contentRate * 0.20;
+
+  // Penalise each critical ATS failure (missing email/phone = likely auto-rejected)
+  const criticalFails = results.atsChecks.filter(c => !c.pass && c.points >= 5).length;
+  raw = raw * Math.pow(0.80, criticalFails);
+
+  // Map to a realistic range: 4 % (no match) → 82 % (near-perfect)
+  const pct = Math.round(4 + raw * 78);
+  return Math.min(82, Math.max(4, pct));
+}
+
+function buildLikelihoodFactors(results) {
+  const factors = [];
+  const kwRate  = results.keywordScore / 50;
+  const atsPct  = Math.round((results.atsScore / 30) * 100);
+
+  // Keyword match
+  if (kwRate >= 0.65)
+    factors.push({ pos: true,  text: 'Strong keyword alignment with the job description' });
+  else if (kwRate >= 0.40)
+    factors.push({ pos: null,  text: 'Moderate keyword match — weaving in more JD terms will help' });
+  else
+    factors.push({ pos: false, text: 'Low keyword overlap — resume language doesn\'t mirror this JD' });
+
+  // ATS
+  if (atsPct >= 75)
+    factors.push({ pos: true,  text: 'ATS-friendly format — likely to pass automated screening' });
+  else if (atsPct >= 50)
+    factors.push({ pos: null,  text: 'Partial ATS compatibility — some formatting issues detected' });
+  else
+    factors.push({ pos: false, text: 'Poor ATS compatibility — may be filtered before a human sees it' });
+
+  // Contact info
+  const emailOk = results.atsChecks.find(c => c.label.startsWith('Email'))?.pass;
+  const phoneOk = results.atsChecks.find(c => c.label.startsWith('Phone'))?.pass;
+  if (emailOk && phoneOk)
+    factors.push({ pos: true, text: 'Contact information is present and complete' });
+  else
+    factors.push({ pos: false, text: 'Missing email or phone number — fix this before applying' });
+
+  // Quantified achievements
+  const hasMetrics = results.atsChecks.find(c => c.label.startsWith('Quantified'))?.pass;
+  if (hasMetrics)
+    factors.push({ pos: true,  text: 'Quantified achievements make your impact clear to recruiters' });
+  else
+    factors.push({ pos: false, text: 'No metrics found — add numbers to make your impact concrete' });
+
+  // Summary
+  const hasSummary = results.atsChecks.find(c => c.label.startsWith('Professional summary'))?.pass;
+  if (hasSummary)
+    factors.push({ pos: true,  text: 'Professional summary gives recruiters an immediate snapshot' });
+  else
+    factors.push({ pos: null,  text: 'A professional summary at the top improves recruiter attention' });
+
+  return factors.slice(0, 5);
 }
 
 // ── RENDER HELPERS ────────────────────────────────────────────
@@ -461,6 +530,60 @@ function renderResults(results) {
       </div>
 
     </div><!-- /overview-grid -->
+
+    <!-- ── INTERVIEW LIKELIHOOD ── -->
+    ${(() => {
+      const pct   = results.interviewLikelihood;
+      const lColor = pct >= 65 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#EF4444';
+      const lLabel = pct >= 75 ? 'Very Likely'
+                   : pct >= 55 ? 'Likely'
+                   : pct >= 35 ? 'Possible'
+                   : pct >= 20 ? 'Unlikely'
+                   : 'Very Unlikely';
+      const lDesc  = pct >= 75
+        ? 'Strong candidate. Recruiters are likely to reach out for this role.'
+        : pct >= 55
+        ? 'Solid application. A few improvements could push you to the top of the pile.'
+        : pct >= 35
+        ? 'There\'s a chance, but the resume needs better alignment with this specific role.'
+        : 'The gap between your resume and this role is significant — consider a targeted rewrite.';
+      const factors = results.likelihoodFactors;
+
+      return /* html */`
+      <div class="section-block likelihood-card">
+        <h3 class="block-title">Interview Call Likelihood</h3>
+        <div class="likelihood-inner">
+
+          <div class="likelihood-left">
+            <div class="likelihood-pct" style="color:${lColor}">${pct}%</div>
+            <div class="likelihood-label" style="color:${lColor};border-color:${lColor}33;background:${lColor}11">${lLabel}</div>
+            <div class="likelihood-bar-wrap">
+              <div class="likelihood-bar-track">
+                <div class="likelihood-bar-fill" style="background:${lColor}" data-w="${pct}"></div>
+              </div>
+              <div class="likelihood-bar-ends">
+                <span>0%</span><span>100%</span>
+              </div>
+            </div>
+            <p class="likelihood-desc">${lDesc}</p>
+          </div>
+
+          <div class="likelihood-right">
+            <div class="likelihood-factors-title">Key factors</div>
+            <div class="likelihood-factors">
+              ${factors.map(f => `
+                <div class="lf-row lf-row--${f.pos === true ? 'pos' : f.pos === false ? 'neg' : 'neu'}">
+                  <span class="lf-icon">${f.pos === true ? '✓' : f.pos === false ? '✗' : '~'}</span>
+                  <span class="lf-text">${f.text}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+        </div>
+      </div>
+      `;
+    })()}
 
     <!-- ── KEYWORDS ── -->
     <div class="section-block">
@@ -654,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const ring = document.querySelector('.ring-progress');
           if (ring) ring.style.strokeDashoffset = ring.getAttribute('data-target');
 
-          document.querySelectorAll('.ss-fill[data-w]').forEach(el => {
+          document.querySelectorAll('.ss-fill[data-w], .likelihood-bar-fill[data-w]').forEach(el => {
             el.style.width = el.getAttribute('data-w') + '%';
           });
         }, 80);
